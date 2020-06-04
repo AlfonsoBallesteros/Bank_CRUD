@@ -1,5 +1,5 @@
 ## Proyecto Profundizacion 3
-> CRUD cuentas de banco
+> CRUD de cuentas de banco
 #### Vistas
 - Login
 - Register
@@ -8,3 +8,4 @@
 - Cuenta
 - Token
 - Modal transciones
+
