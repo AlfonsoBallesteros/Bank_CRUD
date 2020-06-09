@@ -1,4 +1,5 @@
 const {Schema, model} = require('mongoose');
+const mongooseBcrypt = require('mongoose-bcrypt')
 
 const clientSchema = new Schema({
     name:{
@@ -20,20 +21,21 @@ const clientSchema = new Schema({
         type: String
     },
     number_phone:{
-        type: Number,
-        max: 12
+        type: String
     },
     date_born:{
         type: Date
     },
     email:{
         type: String
-    },
+    }/*
     password:{
         type: String
-    }
+    }*/
 },{
     timestamp: true
 });
+
+clientSchema.plugin(mongooseBcrypt);
 
 module.exports = model('Client', clientSchema);
