@@ -1,15 +1,17 @@
 const Client = require('../models/Client');
+const auth = require('./auth.controller')
+const jwt = require('jsonwebtoken');
+const config = require('../config')
 
 const clientsCtrl = {};
 
-clientsCtrl.getClients = async (req, res)=>{
-    const clients = await Client.find();
-    res.json(clients);
-}
-
 clientsCtrl.oneClient = async (req, res) => {
-    const client = await Client.findById(req.params.id);
-    res.json(client);
+    const client = await Client.findById(req.userId, { password: 0});
+    if (!client) {
+        return res.status(404).json({msg: "Ningún usuario encontrado."});
+    }
+    res.status(200).json(client);
+    
 }
 clientsCtrl.addClient = (req, res) => {
     //recuperamos los datos que viene de la vista
@@ -31,19 +33,40 @@ clientsCtrl.addClient = (req, res) => {
     }).then(client => {
         if(!client){
            
-            Client.create(newClient)
+           Client.create(newClient)
                 .then(client => {
-                    res.json({ client: client + ' Registered!' })
+                    //res.json({ client: client + ' Registered!' })
+                    const token = auth.generateToken(newClient);
+                    res.json(token)
                 }).catch(err =>{
-                    res.send('error: ' + err)
+                    res.status(500).json({msg:'Hay un problema al registrarte', error: err});
                 });
         }else{
-            res.json({ error: 'Usuario ya existe' })
+            res.status(500).json({error: 'Usuario ya existente'});
         }
         
     }).catch(err => {
-        res.send('error: ' + err)
+        res.status(500).json({msg:'Hay un problema al registrarte', error: err});
     });
+}
+
+clientsCtrl.signin = async (req, res) => {
+    const client = await Client.findOne({document: req.body.document})
+    if(!client) {
+        return res.status(404).send("La cedula no existe")
+    }
+
+    const validPassword = await client.comparePassword(req.body.password, client.password);
+    if (!validPassword) {
+        return res.status(401).json({msg:'Contraseña invalida', auth: false, token: null});
+    }
+    
+    const token = auth.generateToken(client);
+    res.status(200).json(token)
+}
+
+clientsCtrl.logout = (req, res) => {
+    res.status(200).json({msg:'Cerrado sesion', auth: false, token: null });
 }
 
 module.exports = clientsCtrl;

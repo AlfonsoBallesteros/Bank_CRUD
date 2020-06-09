@@ -1,5 +1,6 @@
 const {Schema, model} = require('mongoose');
-const mongooseBcrypt = require('mongoose-bcrypt')
+const mongooseBcrypt = require('mongoose-bcrypt');
+const bcrypt = require('bcrypt');
 
 const clientSchema = new Schema({
     name:{
@@ -37,5 +38,9 @@ const clientSchema = new Schema({
 });
 
 clientSchema.plugin(mongooseBcrypt);
+
+clientSchema.methods.comparePassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
 
 module.exports = model('Client', clientSchema);
