@@ -1,12 +1,21 @@
 const { Router } = require('express');
 const router = Router();
+const auth = require('../controllers/auth.controller')
 
-const { getClients, addClient, oneClient } = require('../controllers/clients.controller')
+const {  addClient, oneClient, signin, logout} = require('../controllers/clients.controller');
 
 router.route('/')
-        .get(getClients)
         .post(addClient);
-router.route('/:id')
-        .get(oneClient)
+router.route('/me')
+        .get(
+        auth.verifyToken,
+        oneClient
+        );
+
+router.route('/login')
+        .post(signin);
+
+router.route('/logout')
+        .post(logout);       
 
 module.exports = router;
