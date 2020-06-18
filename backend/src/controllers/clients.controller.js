@@ -1,7 +1,5 @@
 const Client = require('../models/Client');
 const auth = require('./auth.controller')
-const jwt = require('jsonwebtoken');
-const config = require('../config')
 
 const clientsCtrl = {};
 
@@ -67,6 +65,20 @@ clientsCtrl.signin = async (req, res) => {
 
 clientsCtrl.logout = (req, res) => {
     res.status(200).json({msg:'Cerrado sesion', auth: false, token: null });
+}
+
+clientsCtrl.updateClient = async (req, res) =>{
+    const {name, lastname, address, number_phone, email, password} = req.body;
+    await Client.findOneAndUpdate({_id: req.userId},{
+        name, 
+        lastname,  
+        address, 
+        number_phone,
+        email, 
+        password
+    });
+    //findById(req.userId, { password: 0});
+    res.json('Usuario Actualizado');
 }
 
 module.exports = clientsCtrl;

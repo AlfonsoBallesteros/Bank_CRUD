@@ -2,10 +2,15 @@ const { Router } = require('express');
 const router = Router();
 const auth = require('../controllers/auth.controller')
 
-const {  addClient, oneClient, signin, logout} = require('../controllers/clients.controller');
+const {  addClient, oneClient, signin, logout, updateClient} = require('../controllers/clients.controller');
 
 router.route('/')
-        .post(addClient);
+        .post(addClient)
+        .put(
+        auth.verifyToken,
+        updateClient
+        );
+
 router.route('/me')
         .get(
         auth.verifyToken,
