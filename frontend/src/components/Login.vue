@@ -1,54 +1,4 @@
 <template>
-<!--<div class="bg-container" style="width: 100%; position: fixed;  height: 100%; background-color: #a5a5a5">
-    <div class="container m-l-a">
-	<div class="d-flex align-items-center " style="height: 100%">
-		<div class="card" style="margin-left: 50vh; margin-top: 10v; margin-top: 5vh" >
-        <br>
-			<div class="card-header">
-				<h3 class="text-center">Ingresar</h3>
-				<div class="d-flex justify-content-end social_icon">
-					<span><i class="fab fa-facebook-square"></i></span>
-					<span><i class="fab fa-google-plus-square"></i></span>
-					<span><i class="fab fa-twitter-square"></i></span>
-				</div>
-			</div>
-			<div class="card-body">
-				<form id="login">
-					<div class="input-group form-group">
-						<div class="input-group-prepend " >
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-                        <input v-model="usuario" type="email" class="form-control" name="uname1" id="uname1" required="" placeholder="usuario">
-                        <div class="invalid-feedback" style="color: aliceblue;">Oops, debes ingresar un nombre de usuario.</div>
-						
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input v-model="password" type="password" class="form-control  rounded-0" id="pwd1" required="" autocomplete="new-password" placeholder="password">
-                        <div class="invalid-feedback" style="color: aliceblue;">Ingresa tu contraseña también!</div>
-                    </div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Recordarme
-					</div>
-					<div class="form-group">
-                        <button type="button" class="btn float-right login_btn" style="background-color: #3f85d1" @click="login()">Login</button>
-					</div>
-				</form>
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					No tienes una cuenta?<a href="">Registrarme</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Olvidaste tu contraseña?</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div> -->
 <div class="container pt-5">
     <h1 class="text-center">Bienvenido</h1>
 	<div class="d-flex justify-content-center h-100">
@@ -67,20 +17,21 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="username">
+						<input v-model="usuario" type="text" class="form-control" placeholder="username">
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password">
+						<input v-model="password" type="password" class="form-control" placeholder="password">
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Login" class="btn float-right login_btn">
+						 <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+						<input type="submit" value="Login" class="btn float-right login_btn" @click="login()">
 					</div>
 				</form>
 			</div>
@@ -186,3 +137,17 @@ color: white;
 margin-left: 4px;
 }
 </style>
+
+<script>
+export default {
+  data: () => ({
+    usuario: "",
+    password: ""
+  }),
+  methods: {
+    login() {
+      console.log(this.usuario);
+      console.log(this.password);
+	}}
+};
+</script>

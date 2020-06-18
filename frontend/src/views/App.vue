@@ -11,9 +11,14 @@
             <li class="nav-item active">
               <a class="nav-link"><router-link to="/index">Inicio</router-link><span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <!--<li class="nav-item">
               <a class="nav-link"><router-link to="/movimientos">Mi Cuenta </router-link></a>
-            </li>
+            </li>-->
+            <b-nav-item-dropdown text="Mi cuenta" right>
+               <b-dropdown-item ><router-link to="/cuenta">Mi Cuenta </router-link> </b-dropdown-item>
+               <b-dropdown-item> <router-link to="/movimientos">Mis movimientos </router-link></b-dropdown-item>
+            </b-nav-item-dropdown>
+
             <li class="nav-item">
               <a class="nav-link"><router-link to="/perfil">Mi Perfil </router-link></a>
             </li>

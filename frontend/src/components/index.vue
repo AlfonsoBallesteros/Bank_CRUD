@@ -155,6 +155,9 @@
 </div>
 </template>
 <style scoped>
+div{
+    width: 100%;
+}
 .pricingTable{
     font-family: 'Poppins', sans-serif;
     text-align: center;

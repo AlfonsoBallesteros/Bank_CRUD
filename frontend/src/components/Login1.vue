@@ -6,18 +6,7 @@
     <div role="form">
         <h2 class="text-center" style="color: black">Regístrate</h2>
         <hr class="">
-        <!---<div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Nombre" tabindex="1">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="form-group">
-                    <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Apellido" tabindex="2">
-                </div>
-            </div>
-        </div>-->
+     
         <div class="form-group">
             <input v-model="nombre" type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Nombre de Usuario" tabindex="3">
         </div>
@@ -124,3 +113,20 @@
     }
 </style>
 
+<script>
+export default {
+  data: () => ({
+    nombre: "",
+    correo: "",
+    password: "",
+    error: false
+  }),
+  methods: {
+    login() {
+      console.log(this.nombre);
+      console.log(this.correo);
+      console.log(this.password);
+    }
+  }
+};
+</script>

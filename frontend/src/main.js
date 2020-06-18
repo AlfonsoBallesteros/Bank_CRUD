@@ -10,6 +10,7 @@ import Login1 from './components/Login1.vue'
 import Table from './components/Table.vue'
 import index from './components/index.vue'
 import perfil from './components/perfil.vue'
+import Cuenta from './components/Cuenta.vue'
 
 Vue.config.productionTip = false
 
@@ -36,6 +37,10 @@ const router = new VueRouter({
     name: 'perfil',
     path:'/perfil',
     component: perfil
+  },{
+    name: 'cuenta',
+    path: '/cuenta',
+    component: Cuenta
   }]
 })
 
