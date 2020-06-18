@@ -11,25 +11,27 @@ const accountSchema = new Schema({
         type: String
     },
     number_account:{
-        type: Number,
-        max:16,
+        type: String
     },
     date_due:{
         type: Object //{ year:24, mouth:5} -> 24/5
     },
     ccv:{
         type: Number,
-        max: 3,
+        max: 1000,
         default: function(){
             return Math.floor(Math.random() * (999- 100) ) + 100;
         }
     },
     saldo:{
         type: Number,
-        max: 8
+        max: 1000000000
     },
     state:{
         type: Boolean
+    },
+    token: {
+        type:String
     }
 },{
     timestamp: true

@@ -7,10 +7,11 @@ clientsCtrl.oneClient = async (req, res) => {
     const client = await Client.findById(req.userId, { password: 0});
     if (!client) {
         return res.status(404).json({msg: "Ningún usuario encontrado."});
-    }
-    res.status(200).json(client);
-    
+    }else{
+        res.status(200).json(client);
+    }   
 }
+
 clientsCtrl.addClient = (req, res) => {
     //recuperamos los datos que viene de la vista
     const {name, lastname, type_document, document, date_exp_docuement, address, number_phone, date_born, email, password} = req.body;
@@ -76,9 +77,13 @@ clientsCtrl.updateClient = async (req, res) =>{
         number_phone,
         email, 
         password
-    });
+    }).then(suc =>{
+        res.status(200).json('Usuario Actualizado');
+    }).catch( err =>{
+        res.status(500).json({msg:'Hay un problema al actualizar', error: err});
+    })
     //findById(req.userId, { password: 0});
-    res.json('Usuario Actualizado');
+    
 }
 
 module.exports = clientsCtrl;
