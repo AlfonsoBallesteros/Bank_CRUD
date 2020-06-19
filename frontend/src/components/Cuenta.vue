@@ -10,8 +10,8 @@
                 <div>
                     <div class="alert alert-info">
                         <a class="button-text">
-                        <b-button v-b-modal.modal-multi-1>Enviar Dinero</b-button>
-                        <strong>&nbsp; Realiza</strong> recargas a tu operador a un click.</a>
+                        <b-button v-b-modal.modal-multi-1>Consignar Dinero</b-button>
+                        <strong>&nbsp; Envía</strong> dinero a otra cuenta</a>
                         <b-modal id="modal-multi-1" size="lg" title="Transferir Dinero" ok-only no-stacking>
                             <fieldset>
                                 <!-- Text input-->
@@ -76,8 +76,8 @@
                     </div>
                 </div>
                 <div class="alert alert-warning button-text">
-                    <a href="#" class="  btn btn-xs btn-warning pull-right">Recargar</a>
-                    <strong>&nbsp; Realiza</strong> recargas a tu operador a un click.
+                    <a href="#" class="  btn btn-xs btn-warning pull-right">Retirar Dinero</a>
+                    <strong>&nbsp; Realiza</strong> retiros a un click.
                 </div>
 
                 <div class="alert alert-danger button-text">
