@@ -1,7 +1,5 @@
 const Client = require('../models/Client');
 const auth = require('./auth.controller')
-const jwt = require('jsonwebtoken');
-const config = require('../config')
 
 const clientsCtrl = {};
 
@@ -9,10 +7,11 @@ clientsCtrl.oneClient = async (req, res) => {
     const client = await Client.findById(req.userId, { password: 0});
     if (!client) {
         return res.status(404).json({msg: "Ningún usuario encontrado."});
-    }
-    res.status(200).json(client);
-    
+    }else{
+        res.status(200).json(client);
+    }   
 }
+
 clientsCtrl.addClient = (req, res) => {
     //recuperamos los datos que viene de la vista
     const {name, lastname, type_document, document, date_exp_docuement, address, number_phone, date_born, email, password} = req.body;
@@ -67,6 +66,24 @@ clientsCtrl.signin = async (req, res) => {
 
 clientsCtrl.logout = (req, res) => {
     res.status(200).json({msg:'Cerrado sesion', auth: false, token: null });
+}
+
+clientsCtrl.updateClient = async (req, res) =>{
+    const {name, lastname, address, number_phone, email, password} = req.body;
+    await Client.findOneAndUpdate({_id: req.userId},{
+        name, 
+        lastname,  
+        address, 
+        number_phone,
+        email, 
+        password
+    }).then(suc =>{
+        res.status(200).json('Usuario Actualizado');
+    }).catch( err =>{
+        res.status(500).json({msg:'Hay un problema al actualizar', error: err});
+    })
+    //findById(req.userId, { password: 0});
+    
 }
 
 module.exports = clientsCtrl;
