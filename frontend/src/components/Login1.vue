@@ -170,17 +170,22 @@ export default{
     name: 'Register',
     methods: {
         register(){
-            if(this.name && this.lastname && this.type_document && this.document && this.date_exp_docuement && this.address && this.number_phone && this.date_born && this.email && this.password){
                 axios.post('http://127.0.0.1:4000/api/clientes',{
-                
+                    name: this.name,
+                    lastname: this.lastname,
+                    type_document: this.type_document,
+                    document: this.document,
+                    date_exp_docuement: this.date_exp_docuement,
+                    address: this.address,
+                    number_phone: this.number_phone,
+                    date_born: this.date_born,
+                    email: this.email,
+                    password: this.password
                 }).then(Response => {
                     console.log(Response);
                 }).catch(Error =>{
                     console.log(Error);
-                })
-            }else{
-                this.error = "Todos los campos son requeridos";
-            }
+                });
         }
     },
 }

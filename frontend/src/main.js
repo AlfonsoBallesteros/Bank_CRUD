@@ -27,7 +27,7 @@ const router = new VueRouter({
     component: Table
   },{
     name: 'index',
-    path: '/index',
+    path: '/',
     component: index
   },{
     name: 'login1',
