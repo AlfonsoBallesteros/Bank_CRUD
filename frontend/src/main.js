@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Login from './components/Login.vue'
 import Login1 from './components/Login1.vue'
-import Table from './components/Table.vue'
+import crearCuenta from './components/crearCuenta.vue'
 import index from './components/index.vue'
 import perfil from './components/perfil.vue'
 import Cuenta from './components/Cuenta.vue'
@@ -24,10 +24,18 @@ const router = new VueRouter({
   },{
     name: 'bank',
     path: '/movimientos',
-    component: Table
+    component: crearCuenta
   },{
     name: 'index',
     path: '/',
+    component: index
+  },{
+    name: 'Banco',
+    path: '/index',
+    component: index
+  },{
+    name: 'inicio',
+    path: '/inicio',
     component: index
   },{
     name: 'login1',

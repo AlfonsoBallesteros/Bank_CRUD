@@ -139,7 +139,7 @@ margin-left: 4px;
 </style>
 
 <script>
-import auth from "@/logic/auth";
+import axios from 'axios'
 export default {
 data: () => ({
 document: "",
@@ -147,15 +147,24 @@ password: "",
 error: false
 }),
 methods: {
-	async login() {
+	login() {
+		axios.post('http://127.0.0.1:4000/api/clientes/login',{
+			document: this.document,
+			password: this.password
+		}).then( res =>{
+			console.log(res.data.token)
+		}).catch( err => {
+			console.log(err)
+		})
 
+	/**
 	try {
 	await auth.login(this.document, this.password);
 	this.$router.push("/perfil");
 	} catch (error) {
 	this.error = true;
 	console.log(error)
-	}
+	}*/
 	}
 },
 };

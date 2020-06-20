@@ -69,7 +69,7 @@ Estás de acuerdo con <a data-toggle="modal" data-target="#t_and_c_m" style="bac
 <hr class="">
 <div class="row">
 <div class="col-xs-12 col-md-6"><button class=" btn-block btn-lg form-submit" style="color: #17a2b8" @click="register()">registrar</button></div>
-<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg" style="background-color: #17a2b8" @click="Ingresar()">ingresar</button></div>
+<div class="col-xs-12 col-md-6"><button class="btn btn-success btn-block btn-lg" style="background-color: #17a2b8"><router-link to="/login">Ingresar</router-link></button></div>
 </div>
 </div>
 </div>
@@ -182,13 +182,16 @@ export default{
                     email: this.email,
                     password: this.password
                 }).then(Response => {
+                    alert("Usuario creado")
                     console.log(Response);
+                     console.log(Response.data.auth);
                 }).catch(Error =>{
                     console.log(Error);
-                });
-        }
+                })
+        },
     },
-}
+ }
+
 /*import axios from "axios";
 export default {
 data(){
