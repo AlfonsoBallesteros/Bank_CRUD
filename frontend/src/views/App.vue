@@ -14,8 +14,7 @@
             <!--<li class="nav-item">
               <a class="nav-link"><router-link to="/movimientos">Mi Cuenta </router-link></a>
             </li>-->
-            <b-nav-item-dropdown text="Mi cuenta" right>
-               <b-dropdown-item ><router-link to="/cuenta">Mi Cuenta </router-link> </b-dropdown-item>
+            <b-nav-item-dropdown text="Cuentas" right>
                <b-dropdown-item> <router-link to="/movimientos">Crear Cuenta </router-link></b-dropdown-item>
             </b-nav-item-dropdown>
 

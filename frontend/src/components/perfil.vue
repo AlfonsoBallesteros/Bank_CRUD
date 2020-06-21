@@ -38,11 +38,11 @@
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="home">
-<form class="form" action="##" method="post" id="registrationForm">
+<div class="form">
 <div class="form-group">
 <div class="col-xs-6">
 <label for="first_name"><h4>Nombre</h4></label>
-<input v-model="first_name" type="text" class="form-control" name="first_name" id="first_name" placeholder="Nombre" title="enter your first name if any.">
+<input v-model="name" type="text" class="form-control" name="first_name" id="first_name">
 </div>
 </div>
 <div class="form-group">
@@ -57,7 +57,7 @@
 
 <div class="col-xs-6">
 <label for="Adress"><h4>Dirección</h4></label>
-<input v-model="Adress" type="text" class="form-control" name="address" id="address" placeholder="Dirección" title="enter your address">
+<input v-model="address" type="text" class="form-control" name="address" id="address" placeholder="Dirección" title="enter your address">
 </div>
 </div>
 
@@ -83,159 +83,13 @@
 <div class="form-group">
 <div class="col-xs-12">
 <br>
-<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+<button class="btn btn-lg btn-info" @click="updateUser()"><i class="glyphicon glyphicon-ok-sign"></i> Actualizar</button>
 <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
 </div>
 </div>
-</form>
-
-<hr>
+</div>
 
 </div><!--/tab-pane-->
-<div class="tab-pane" id="messages">
-
-<h2></h2>
-
-<hr>
-<form class="form" action="##" method="post" id="registrationForm">
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="first_name"><h4>First name</h4></label>
-<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="last_name"><h4>Last name</h4></label>
-<input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-</div>
-</div>
-
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="phone"><h4>Phone</h4></label>
-<input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-xs-6">
-<label for="mobile"><h4>Mobile</h4></label>
-<input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="email"><h4>Email</h4></label>
-<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="email"><h4>Location</h4></label>
-<input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="password"><h4>Password</h4></label>
-<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="password2"><h4>Verify</h4></label>
-<input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-</div>
-</div>
-<div class="form-group">
-<div class="col-xs-12">
-<br>
-<button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-</div>
-</div>
-</form>
-
-</div><!--/tab-pane-->
-<div class="tab-pane" id="settings">
-
-
-<hr>
-<form class="form" action="##" method="post" id="registrationForm">
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="first_name"><h4>First name</h4></label>
-<input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="last_name"><h4>Last name</h4></label>
-<input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-</div>
-</div>
-
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="phone"><h4>Phone</h4></label>
-<input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-xs-6">
-<label for="mobile"><h4>Mobile</h4></label>
-<input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="email"><h4>Email</h4></label>
-<input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="email"><h4>Location</h4></label>
-<input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="password"><h4>Password</h4></label>
-<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-</div>
-</div>
-<div class="form-group">
-
-<div class="col-xs-6">
-<label for="password2"><h4>Verify</h4></label>
-<input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-</div>
-</div>
-<div class="form-group">
-<div class="col-xs-12">
-<br>
-<button style="background-color:#00A897" class="btn btn-lg pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-<!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-</div>
-</div>
-</form>
-</div>
 
 </div><!--/tab-pane-->
 </div><!--/tab-content-->
@@ -245,4 +99,61 @@
 
 </div>
 </template>
-
+<script>
+import axios from 'axios'
+export default {
+    data:() => ({
+        token: '',
+        name: "",
+        lastname: "",
+        type_document: "",
+        document: "",
+        date_exp_docuement: "",
+        address: "",
+        number_phone: "",
+        date_born: "",
+        email: "",
+    }),
+    methods: {
+        getUser(){
+            this.token = localStorage.getItem('session');
+            axios.get('http://127.0.0.1:4000/api/clientes/me', {
+                headers:{
+                    'x-access-token': this.token
+                }
+            }).then( res =>{
+                this.name = res.data.name;
+                this.lastname = res.data.lastname;
+                this.address = res.data.address;
+                this.number_phone = res.data.number_phone;
+                this.email = res.data.email;
+                console.log(res.data.name)
+            }).catch( err =>{
+                console.log(err)
+            })
+        },
+        updateUser(){
+            const body = {
+                name: this.name,
+                lastname: this.lastname,
+                address: this.address,
+                number_phone: this.number_phone,
+                email: this.email
+            }
+            this.token = localStorage.getItem('session')
+            axios.put('http://127.0.0.1:4000/api/clientes/', body ,
+            {
+                headers:{
+                    'x-access-token': this.token
+                }
+            }).then(res =>{
+                console.log(res)
+            })
+        },
+   },
+    mounted() {
+        this.getUser(); 
+        //this.updateUser();
+    },
+}
+</script>

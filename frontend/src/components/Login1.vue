@@ -169,7 +169,7 @@ export default{
     },
     name: 'Register',
     methods: {
-        register(){
+        async register(){
                 axios.post('http://127.0.0.1:4000/api/clientes',{
                     name: this.name,
                     lastname: this.lastname,

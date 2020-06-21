@@ -47,7 +47,7 @@ const router = new VueRouter({
     component: perfil
   },{
     name: 'cuenta',
-    path: '/cuenta',
+    path: '/cuenta/:id',
     component: Cuenta
   }]
 })

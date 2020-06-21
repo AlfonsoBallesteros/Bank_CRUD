@@ -139,9 +139,11 @@ margin-left: 4px;
 </style>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+
 export default {
 data: () => ({
+token: "",
 document: "",
 password: "",
 error: false
@@ -153,6 +155,10 @@ methods: {
 			password: this.password
 		}).then( res =>{
 			console.log(res.data.token)
+			this.token = res.data.token;
+			localStorage.setItem('session', this.token);
+			this.$router.push({path:'/movimientos'});
+			
 		}).catch( err => {
 			console.log(err)
 		})
