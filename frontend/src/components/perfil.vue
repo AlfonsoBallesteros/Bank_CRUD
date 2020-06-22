@@ -3,7 +3,7 @@
     <br>
     <div class="container bootstrap snippet">
     <div class="row">
-    <div class="col-sm-10" style="padding-left:90px"><h1>User name</h1></div>
+    <div class="col-sm-10" style="padding-left:90px"><h1>Hola, {{name}}</h1></div>
    
 </div>
 <div class="row">
@@ -33,11 +33,11 @@
 
 </div><!--/col-3-->
 <div class="col-md-8">
-<ul class="nav nav-tabs">
+<ul class="nav">
 <h3 class="active"><a data-toggle="tab">Mis datos</a></h3>
 </ul>
 <div class="tab-content">
-<div class="tab-pane active" id="home">
+<div  class="tab-pane active" id="home">
 <div class="form">
 <div class="form-group">
 <div class="col-xs-6">
@@ -74,12 +74,6 @@
 </div>
 </div>
 
-<div class="form-group">
-<div class="col-xs-6">
-<label for="password"><h4>Password</h4></label>
-<input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-</div>
-</div>
 <div class="form-group">
 <div class="col-xs-12">
 <br>

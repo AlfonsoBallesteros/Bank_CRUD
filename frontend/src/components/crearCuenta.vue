@@ -1,9 +1,11 @@
 <template>
     <div>
-    <div class="jumbotron" style="margin-bottom: 0rem;">
+    <div class="jumbotron" style="margin-bottom: 1rem;">
   <div class="container">
-    <h1 class="display-3">Bienvenido!</h1>
-    <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+    <h1 class="display-3"><strong>Bienvenido!</strong></h1>
+    <h5>Al ontener una tarjeta puedes comprar lo que quieras al instante, obtienes mayores beneficios y disfrutas de momentos inolvidables.
+      Pensada para que empieces a construir tu historial credicticio sin grandes deudas.
+    </h5>
     <!-- Button trigger modal -->
   <div>
    <div class="alert">
@@ -12,7 +14,7 @@
       <b-modal id="modal-multi-1" size="lg" title="Crear cuenta" cerrar-only no-stacking>
           <fieldset>
               <!-- Text input-->
-          <div class="form-group">
+          <div class="form-group" >
           <label class="col-md-6 control-label" for="tipo_tarjeta">Seleccione Tipo de cuenta</label>
           <div class="col-md-8">
             <select id="tipo_tarjeta" name="tipo_tarjeta" class="form-control"  v-model="type_account" >
@@ -25,21 +27,13 @@
        </fieldset>
         <button @click="crearCuenta()" class="btn btn-info">Añadir Cuenta</button>   
       </b-modal>
-      <b-modal id="modal-multi-2" title="Second Modal" ok-only>
-          <p class="my-2">Second Modal</p>
-          <b-button v-b-modal.modal-multi-3 size="sm">Open Third Modal</b-button>
-      </b-modal>
-
-      <b-modal id="modal-multi-3" size="sm" title="Third Modal" ok-only>
-          <p class="my-1">Third Modal</p>
-      </b-modal>
-      
   </div>
 </div>
  </div>
  </div>
-    <div class="row">
-       <div v-for="(cuenta, index) in Cuentas" :key="index" class="col-md-4">
+ <div>
+    <div class="row  col-md-12" style="margin-bottom: 1rem;">
+       <div v-for="(cuenta, index) in Cuentas" :key="index" class=" col-md-4 card border-info p-3">
         <b-card title="Numero de cuenta:" >
           <b-card-text><strong>{{cuenta.number_account}}</strong></b-card-text>
           <!--{ name:'cuenta', params: {id : cuenta.token} }-->
@@ -48,10 +42,15 @@
         </b-card>
       </div>
     </div>
-    </div>      
+    </div>    
+</div>  
 </template>
 
 <style scoped>
+
+.row{
+ padding-left: 40px;
+}
 div{
   width: 100%;
 }
