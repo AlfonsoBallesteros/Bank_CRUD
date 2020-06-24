@@ -26,7 +26,7 @@
 </div>
 <div class=" row">
 <div class="col-md-7">
-<input v-model="date_exp_docuement" type="datepicker" name="date_exp_docuement" id="date_exp_docuement" class="form-control input-lg" placeholder="Fecha Expedición: Año/Mes/Día" tabindex="3">
+<input v-model="date_exp_docuement" type="date" name="date_exp_docuement" id="date_exp_docuement" class="form-control input-lg" placeholder="Fecha Expedición: Año/Mes/Día" tabindex="3">
 </div>
 <div class="form-group col-md-5">
 <input v-model="address" type="text" name="address" id="address" class="form-control input-lg" placeholder="Dirección" tabindex="3">
@@ -37,7 +37,7 @@
 <input v-model="number_phone" type="text" name="number_phone" id="number_phone" class="form-control input-lg" placeholder="Celular" tabindex="3">
 </div>
 <div class="form-group col-md-8">
-<input v-model="date_born" type="datepicker" name="document" id="document" class="form-control input-lg" placeholder="Fecha de Nacimiento: Año/Mes/Día" tabindex="3">
+<input v-model="date_born" type="date" name="document" id="document" class="form-control input-lg" placeholder="Fecha de Nacimiento: Año/Mes/Día" tabindex="3">
 </div>
 </div>
 <div class="form-group">

@@ -40,7 +40,7 @@
                 </div>
           </div>
           <div class="col-md-4">
-              <h2>Tarjetas Débido/Crédito</h2>
+              <h2>Tarjetas Debito/Crédito</h2>
             <div class="card" style="width: 18rem;">
             <img src="../assets/images/person_5.jpg" class="card-img-top" alt="...">
             <div class="card-body">

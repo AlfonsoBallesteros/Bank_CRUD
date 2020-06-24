@@ -8,15 +8,23 @@
                 <br>
                 <h2>HABLEMOS DE DINERO:</h2>
                 <div>
-                    <div class="alert alert-info">
+                    <div class="alert alert-info button-text">
+                    <p><strong>Número de cuenta:</strong> {{cuenta.number_account}}</p>
+                    <p><strong>Código: </strong> {{cuenta.ccv}}</p>
+                    <p><strong>Fecha de vencimiento: </strong> {{month}}/{{year}}</p>
+                   
+                    <strong v-if="cuenta.state">&nbsp; DISPONIBLE</strong>
+                    <strong v-if="!cuenta.state">&nbsp; Bloqueada</strong>
+                </div>
+                    <div class="alert alert-secondary">
                         <a class="button-text">
-                        <b-button v-b-modal.modal-multi-a>Consignar Dinero</b-button>
-                        <strong>&nbsp; Envía</strong> dinero a otra cuenta</a>
+                        <b-button v-b-modal.modal-multi-a variant="info">Consignar Dinero</b-button>
+                        <strong>&nbsp; Enviar</strong> dinero a otras cuentas</a>
                         <b-modal id="modal-multi-a" size="lg" title="Transferir Dinero" ok-only no-stacking>
                             <fieldset>
                                 <!-- Text input-->
                                 <div class="form-group">
-                                <label class="col-md-4 control-label" for="Amount">Monto</label>  
+                                <label class="col-md-4 control-label" for="Amount"><strong>Ingrese el Monto</strong></label>  
                                 <div class="col-md-8">
                                 <input v-model="saldo" id="Amount" name="Amount" type="number" placeholder="$0.000" class="form-control input-md" required="">  
                                 </div>
@@ -25,21 +33,21 @@
                             <b-button v-b-modal.modal-multi-b  @click="consignarSaldo()" >Enviar código de verificación</b-button>
                         </b-modal>
 
-                        <b-modal id="modal-multi-b" title="Second Modal">
-                            <p v-if="Transferencia == 'Transferencia realizada'" class="my-2">Token 111111</p>
+                        <b-modal id="modal-multi-b" title="Código de Verificación">
+                            <h4 v-if="Transferencia == 'Transferencia realizada'"  class="circulo">1205407</h4>
                             <p v-if="Transferencia == 'Saldo muy alto'" class="my-2">{{Transferencia}}</p>
-                            <b-button v-b-modal.modal-multi-c size="sm">Siguiente</b-button>
+                            <b-button v-b-modal.modal-multi-c >Aplicar</b-button>
                         </b-modal>
 
-                        <b-modal id="modal-multi-c" size="sm" title="Third Modal" ok-only>
+                        <b-modal id="modal-multi-c" size="sm" title="Exitoso!" ok-only>
                             <p class="my-1">{{Transferencia}}</p>
                         </b-modal>
                         
                     </div>
                 </div>
-                <div class="alert alert-warning">
+                <div class="alert alert-secondary">
                         <a class="button-text">
-                        <b-button v-b-modal.modal-multi-1>Retirar Dinero</b-button>
+                        <b-button v-b-modal.modal-multi-1 variant="info">Retirar Dinero</b-button>
                         <strong>&nbsp; Retirar</strong> dinero a sólo un click</a>
                         <b-modal id="modal-multi-1" size="lg" title="Transferir Dinero" ok-only no-stacking>
                             <fieldset>
@@ -51,31 +59,16 @@
                                 </div>
                                 </div>
                                 </fieldset>
-                            <b-button v-b-modal.modal-multi-2 @click="retirarSaldo()">Enviar código de verificación</b-button>
+                            <b-button v-b-modal.modal-multi-2 @click="retirarSaldo()" >Enviar código de verificación</b-button>
                         </b-modal>
 
-                        <b-modal id="modal-multi-2" title="Second Modal" ok-only>
-                            <p v-if="Transferencia == 'Transferencia realizada'" class="my-2">Token 111111</p>
-                            <p v-if="Transferencia == 'Saldo insuficiente'" class="my-2">{{Transferencia}}</p>
-                            <b-button v-b-modal.modal-multi-3 size="sm">Open Third Modal</b-button>
+                        <b-modal id="modal-multi-2" title="Código de Verificación" ok-only>
+                            <h3 v-if="Transferencia == 'Transferencia realizada'" class="circulo">1205407</h3>
+                            <h5 v-if="Transferencia == 'Saldo insuficiente'" class="my-2">{{Transferencia}}</h5>
                         </b-modal>
-
-                        <b-modal id="modal-multi-3" size="sm" title="Third Modal" ok-only>
-                            <p class="my-1">Third Modal</p>
-                        </b-modal>
-                        
                     </div>
 
-                <div class="alert alert-danger button-text">
-                    <a href="#" class=" btn btn-xs btn-danger pull-right">Pagar Facturas</a>
-                    <p>Numero de cuenta: {{cuenta.number_account}}</p>
-                    <p>Codigo: {{cuenta.ccv}}</p>
-                    <p>Fecaha de vencimiento: {{month}}/{{year}}</p>
-                   
-                    <strong v-if="cuenta.state">&nbsp; DISPONIBLE</strong>
-                    <strong v-if="!cuenta.state">&nbsp; Bloqueada</strong>
-                </div>
-                <div><br><br><br><br>
+                <div>
                      <h2 style="padding-top: 50px">SALDO DISPONIBLE:</h2>
                      <h5 id="saldo">Dinero móvil:<strong> {{cuenta.saldo}} </strong></h5>
                 </div>
@@ -85,6 +78,29 @@
 </div>
 </template>
 <style scoped>
+.btn1{
+    margin-left: 70%;
+}
+.circulo{
+    background-color: cadetblue;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    text-align: center;
+    color: white;
+  margin:0px auto;
+  padding:3%
+  }
+
+.circulo > h2 {
+	font-family: sans-serif;
+	color: white;
+	font-size: 1.4rem;
+	font-weight: bold;
+}
 .button-text{
     color: black !important;
 }
