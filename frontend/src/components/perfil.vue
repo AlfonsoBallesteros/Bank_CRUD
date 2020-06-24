@@ -117,7 +117,7 @@ export default {
     methods: {
         getUser(){
             this.token = localStorage.getItem('session');
-            axios.get('http://127.0.0.1:4000/api/clientes/me', {
+            axios.get('http://192.168.0.24/v1/api/clientes/me', {
                 headers:{
                     'x-access-token': this.token
                 }
@@ -141,7 +141,7 @@ export default {
                 email: this.email
             }
             this.token = localStorage.getItem('session')
-            axios.put('http://127.0.0.1:4000/api/clientes/', body ,
+            axios.put('http://192.168.0.24/v1/api/clientes/', body ,
             {
                 headers:{
                     'x-access-token': this.token

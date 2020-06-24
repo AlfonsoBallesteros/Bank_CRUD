@@ -72,7 +72,7 @@ export default {
     listarCuentas(){
       this.token = localStorage.getItem('session');
       console.log('Token aqui', this.token);
-      axios.get('http://127.0.0.1:4000/api/accounts/', {
+      axios.get('http://192.168.0.24/v1/api/accounts/', {
         headers: {
           'x-access-token': this.token
           }
@@ -88,7 +88,7 @@ export default {
     crearCuenta(){
         this.token = localStorage.getItem('session');
         console.log('Token here', this.token);
-        axios.post('http://127.0.0.1:4000/api/accounts/', this.type_account,{
+        axios.post('http://192.168.0.24/v1/api/accounts/', this.type_account,{
             headers: {
           'x-access-token': this.token
           }
@@ -104,7 +104,7 @@ export default {
     eliminarCuenta(cuenta){
       this.token = localStorage.getItem('session');
       console.log('token', this.token);
-      axios.delete('http://127.0.0.1:4000/api/accounts/one',{
+      axios.delete('http://192.168.0.24/v1/api/accounts/one',{
         headers:{
           'x-access-token': this.token,
           'x-access-account': cuenta

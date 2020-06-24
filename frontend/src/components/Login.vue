@@ -150,7 +150,7 @@ error: false
 }),
 methods: {
 	login() {
-		axios.post('http://127.0.0.1:4000/api/clientes/login',{
+		axios.post('http://192.168.0.24/v1/api/clientes/login',{
 			document: this.document,
 			password: this.password
 		}).then( res =>{

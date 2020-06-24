@@ -133,7 +133,7 @@ export default {
     methods: {
         getCuenta(){
             this.token = localStorage.getItem('session')
-            axios.get('http://127.0.0.1:4000/api/accounts/one',{
+            axios.get('http://192.168.0.24/v1/api/accounts/one',{
                 headers:{
                     'x-access-token': this.token,
                     'x-access-account': this.idCuenta
@@ -151,7 +151,7 @@ export default {
             if(parseInt(this.saldo) < 10000000000){
                 this.saldoCuenta = (parseInt(this.cuenta.saldo) + parseInt(this.saldo))
            
-                axios.put('http://127.0.0.1:4000/api/accounts/one', {
+                axios.put('http://192.168.0.24/v1/api/accounts/one', {
                     saldo: this.saldoCuenta
                 } ,{
                     headers:{
@@ -175,7 +175,7 @@ export default {
             this.saldoCuenta = (parseInt(this.cuenta.saldo) - parseInt(this.saldo))
             if(parseInt(this.saldoCuenta)>0){
                 
-                axios.put('http://127.0.0.1:4000/api/accounts/one', {
+                axios.put('http://192.168.0.24/v1/api/accounts/one', {
                     saldo: this.saldoCuenta
                 },{
                     headers:{
